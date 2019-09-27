@@ -6,7 +6,6 @@ import {
   ICreateRestModel,
   IRestID,
 } from 'src/modules/rest/models/create.model';
-import { RestDocumentSchema } from 'src/modules/rest/rest.schema';
 
 @Injectable()
 export class RestServiceCommands {

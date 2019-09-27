@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { RestServiceCommands } from '@commands/rest/rest.commands';
-// import { RestServiceQueries } from '@queries/rest/rest.queries';
+import { RestServiceQueries } from '@queries/rest/rest.queries';
 import { MongoDatabaseModule } from '@database/database.mongo.module';
 import { RestController } from './rest.controller';
 import { RestProviders } from './rest.providers';
@@ -11,7 +11,7 @@ import { MongoDatabaseProviders } from '@database/database.mongo.providers';
   controllers: [RestController],
   providers: [
     RestServiceCommands,
-    // RestServiceQueries,
+    RestServiceQueries,
     ...MongoDatabaseProviders,
     ...RestProviders,
   ],

@@ -17,7 +17,7 @@ import {
 } from '@nestjs/swagger';
 import { isEmpty } from 'lodash';
 import { RestServiceCommands } from '@commands/rest/rest.commands';
-// import { CandidateServiceQueries } from '@queries/candidate-fulfillment/candidate.queries';
+import { RestServiceQueries } from '@queries/rest/rest.queries';
 import {
   ICreateRestModel,
   CreateRestModel,
@@ -35,13 +35,14 @@ import {
 @Controller('rest')
 export class RestController {
   constructor(
-    private commands: RestServiceCommands, // private candidateServiceQueries: CandidateServiceQueries,
+    private commands: RestServiceCommands,
+    private queries: RestServiceQueries,
   ) {}
 
-  // @Get('/candidates')
-  // async getAllCandidate(): Promise<MongoCandidate[]> {
-  //   return await this.candidateServiceQueries.getAllCandidate();
-  // }
+  @Get('/campaigns')
+  async getAllRest(): Promise<CreateRestModel[]> {
+    return await this.queries.getAllRest();
+  }
 
   // @Get('/candidates/:candidateID')
   // @ApiImplicitParam({
@@ -50,7 +51,7 @@ export class RestController {
   // async getSingleCandidate(
   //   @Param('candidateID') candidateID,
   // ): Promise<MongoCandidate> {
-  //   const candidate = await this.candidateServiceQueries.getSingleCandidate(
+  //   const candidate = await this.queries.getSingleCandidate(
   //     candidateID,
   //   );
   //   if (isEmpty(candidate)) {
@@ -64,7 +65,7 @@ export class RestController {
   //   @Query('supplierId') supplierID: MongoSupplierID,
   //   @Query('keyword') keyword: string,
   // ): Promise<ElasticCandidate> {
-  //   const keywords = await this.candidateServiceQueries.getKeywords(
+  //   const keywords = await this.queries.getKeywords(
   //     supplierID,
   //     keyword,
   //   );
