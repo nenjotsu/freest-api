@@ -1,2 +1,2 @@
-# rest-api
+# freest-api
 FREE to practice RESTful API
