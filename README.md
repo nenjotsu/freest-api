@@ -8,6 +8,8 @@ If you are a Front-End Developer and you want to practice your skills and play a
 
 Oh yeah... did I already mentioned that this is for free? Yes, you're right, feel free to use and practice your Front End Skills (whatever) e.g. ReactJS, VueJS, AngularJS, etc.
 
+![alt text](./freestapi.jpg 'Feel FREE to practice RESTful API')
+
 # How it Works
 
 ## Create Record
@@ -56,7 +58,7 @@ fetch('http://freestapi.nenjotsu.com/api/v1/rest/superhero')
 fetch(
   'http://freestapi.nenjotsu.com/api/v1/rest/superhero/5d8e2acfdb140390a701e759',
   {
-    method: 'PUT',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
