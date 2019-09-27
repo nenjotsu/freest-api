@@ -3,7 +3,6 @@ import { Model } from 'mongoose';
 import { MONGO } from '@common/constants';
 import {
   ICreateRestModel,
-  CreateRestModel,
   IRestID,
 } from '../../modules/rest/models/create.model';
 
@@ -14,7 +13,7 @@ export class RestServiceQueries {
     private readonly model: typeof Model,
   ) {}
 
-  async getAllRest(): Promise<CreateRestModel[]> {
+  async getAllRest(): Promise<ICreateRestModel[]> {
     const records = await this.model.find().exec();
     // .limit(10)
     return records;

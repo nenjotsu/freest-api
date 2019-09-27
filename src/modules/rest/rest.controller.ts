@@ -23,12 +23,6 @@ import {
   CreateRestModel,
   IRestID,
 } from './models/create.model';
-// import {
-//   MongoCandidate,
-//   MongoCandidateID,
-//   ElasticCandidate,
-//   MongoSupplierID,
-// } from './interfaces/index.inteface';
 
 // @ApiBearerAuth()
 @ApiUseTags('rest')
@@ -40,37 +34,21 @@ export class RestController {
   ) {}
 
   @Get('/campaigns')
-  async getAllRest(): Promise<CreateRestModel[]> {
+  async getAllRest(): Promise<ICreateRestModel[]> {
     return await this.queries.getAllRest();
   }
 
-  // @Get('/candidates/:candidateID')
-  // @ApiImplicitParam({
-  //   name: 'candidateID',
-  // })
-  // async getSingleCandidate(
-  //   @Param('candidateID') candidateID,
-  // ): Promise<MongoCandidate> {
-  //   const candidate = await this.queries.getSingleCandidate(
-  //     candidateID,
-  //   );
-  //   if (isEmpty(candidate)) {
-  //     throw new NotFoundException('Candidate does not exist!');
-  //   }
-  //   return candidate;
-  // }
-
-  // @Get('/keywords')
-  // async getKeywords(
-  //   @Query('supplierId') supplierID: MongoSupplierID,
-  //   @Query('keyword') keyword: string,
-  // ): Promise<ElasticCandidate> {
-  //   const keywords = await this.queries.getKeywords(
-  //     supplierID,
-  //     keyword,
-  //   );
-  //   return keywords;
-  // }
+  @Get('/campaigns/:id')
+  @ApiImplicitParam({
+    name: 'id',
+  })
+  async getSingleRest(@Param('id') id: IRestID): Promise<ICreateRestModel> {
+    const data = await this.queries.getSingleRest(id);
+    if (isEmpty(data)) {
+      throw new NotFoundException('Campaign does not exist!');
+    }
+    return data;
+  }
 
   @Post('/campaigns')
   async createRest(@Body() model: CreateRestModel) {
