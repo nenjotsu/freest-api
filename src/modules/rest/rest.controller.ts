@@ -67,7 +67,7 @@ export class RestController {
   //   return keywords;
   // }
 
-  @Post('/user')
+  @Post('/campaigns')
   async createRest(@Body() model: CreateRestModel) {
     const data = await this.commands.createRest(model);
     return data;

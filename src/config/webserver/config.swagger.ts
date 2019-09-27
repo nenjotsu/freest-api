@@ -14,7 +14,7 @@ const swaggerConfig = new DocumentBuilder()
   .setDescription(
     `The ${name} description for ${version}.
 
-    e.g. http://localhost:${ENV.PORT}${baseUrl}/rest/users
+    e.g. http://localhost:${ENV.PORT}${baseUrl}/rest/campaigns
   `,
   )
   .setVersion(version)
