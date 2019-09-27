@@ -1,0 +1,138 @@
+{
+  "name": "freest-api",
+  "version": "1.0.0",
+  "description": "Free RESTful API to practice",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && npm run build",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./tests/jest-e2e.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nenjotsu/freest-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "elasticsearch"
+  ],
+  "author": "nenjotsu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nenjotsu/freest-api/issues"
+  },
+  "homepage": "https://github.com/nenjotsu/freest-api#readme",
+  "devDependencies": {
+    "@nestjs/testing": "^6.0.0",
+    "@types/bunyan-winston-adapter": "^0.2.3",
+    "@types/chai": "4.2.3",
+    "@types/dotenv": "6.1.1",
+    "@types/elasticsearch": "^5.0.32",
+    "@types/express": "^4.16.0",
+    "@types/helmet": "0.0.44",
+    "@types/jest": "^23.3.13",
+    "@types/jsonwebtoken": "^8.3.0",
+    "@types/mongoose": "5.5.18",
+    "@types/node": "^10.12.18",
+    "@types/restify-errors": "^4.3.3",
+    "@types/supertest": "^2.0.7",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "4.2.0",
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "connect": "^3.2.0",
+    "expect": "^23.6.0",
+    "ghooks": "^2.0.4",
+    "install": "0.13.0",
+    "jest": "^23.6.0",
+    "js-yaml": "^3.3.0",
+    "jsdom": "13.1.0",
+    "jsdom-global": "3.0.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "npm": "6.11.3",
+    "prettier": "^1.15.3",
+    "reflect-metadata": "0.1.13",
+    "supertest": "^3.4.1",
+    "swagger-tools": "0.10.4",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.3",
+    "tsconfig-paths": "^3.7.0",
+    "tslib": "^1.9.3",
+    "tslint": "5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.4",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "@nestjs/common": "6.7.2",
+    "@nestjs/core": "6.0.0",
+    "@nestjs/elasticsearch": "6.0.1",
+    "@nestjs/mongoose": "6.0.0",
+    "@nestjs/platform-express": "6.0.5",
+    "@nestjs/swagger": "^3.0.2",
+    "@types/lodash": "^4.14.123",
+    "@types/node-fetch": "^2.3.3",
+    "applicationinsights": "^1.0.8",
+    "csvtojson": "^2.0.8",
+    "dotenv": "^7.0.0",
+    "elasticsearch": "^15.4.1",
+    "express-jwt": "^5.3.1",
+    "express-rate-limit": "^3.4.0",
+    "glob": "^7.1.2",
+    "global": "^4.3.2",
+    "helmet": "3.21.1",
+    "jwks-rsa": "^1.4.0",
+    "moment": "^2.24.0",
+    "mongoose": "5.4.19",
+    "node-fetch": "^2.2.0",
+    "require-directory": "^2.1.1",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.3.3",
+    "swagger-ui-express": "^4.0.2",
+    "tedious": "^2.0.0",
+    "ts-node": "^8.0.2",
+    "tslib": "^1.9.3",
+    "winston": "^2.3.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@commands/(.*)": "<rootDir>/commands/$1",
+      "@queries/(.*)": "<rootDir>/queries/$1",
+      "@common/(.*)": "<rootDir>/common/$1",
+      "@config/(.*)": "<rootDir>/config/$1",
+      "@database/(.*)": "<rootDir>/database/$1"
+    }
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test && npm run test:e2e"
+    }
+  }
+}
