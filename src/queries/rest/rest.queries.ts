@@ -14,10 +14,8 @@ export class RestServiceQueries {
   ) {}
 
   async getAllRest(): Promise<ICreateRestModel[]> {
-    const records = await this.model
-      .find()
-      .limit(10)
-      .exec();
+    const records = await this.model.find().exec();
+    // .limit(10)
     return records;
   }
 

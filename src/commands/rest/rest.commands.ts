@@ -4,8 +4,8 @@ import { MONGO } from '@common/constants';
 import {
   CreateRestModel,
   ICreateRestModel,
+  IRestID,
 } from 'src/modules/rest/models/create.model';
-import { RestDocumentSchema } from 'src/modules/rest/rest.schema';
 
 @Injectable()
 export class RestServiceCommands {
@@ -21,20 +21,20 @@ export class RestServiceCommands {
     return rest.save();
   }
 
-  // async updateCandidate(
-  //   id,
-  //   createRestModel: CreateRestModel,
-  // ): Promise<ICreateRestModel> {
-  //   const updatedRest = await this.model.findByIdAndUpdate(
-  //     id,
-  //     createRestModel,
-  //     { new: true },
-  //   );
-  //   return updatedRest;
-  // }
+  async updateRest(
+    id: IRestID,
+    createRestModel: CreateRestModel,
+  ): Promise<ICreateRestModel | null> {
+    const updatedRest = await this.model.findByIdAndUpdate(
+      id,
+      createRestModel,
+      { new: true },
+    );
+    return updatedRest;
+  }
 
-  // async deleteRest(id): Promise<any> {
-  //   const deletedRest = await this.model.findOneAndDelete(id);
-  //   return deletedRest;
-  // }
+  async deleteRest(id: IRestID): Promise<any> {
+    const deletedRest = await this.model.findOneAndDelete(id);
+    return deletedRest;
+  }
 }
