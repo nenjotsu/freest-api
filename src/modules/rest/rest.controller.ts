@@ -18,7 +18,11 @@ import {
 import { isEmpty } from 'lodash';
 import { RestServiceCommands } from '@commands/rest/rest.commands';
 // import { CandidateServiceQueries } from '@queries/candidate-fulfillment/candidate.queries';
-import { ICreateRestModel, CreateRestModel } from './models/create.model';
+import {
+  ICreateRestModel,
+  CreateRestModel,
+  IRestID,
+} from './models/create.model';
 // import {
 //   MongoCandidate,
 //   MongoCandidateID,
@@ -73,38 +77,33 @@ export class RestController {
     return data;
   }
 
-  // @Patch('/candidates/:candidateID')
-  // @ApiImplicitQuery({
-  //   name: 'candidateID',
-  // })
-  // async updateCandidate(
-  //   @Param('candidateID') candidateID: MongoCandidateID,
-  //   @Body() CreateRestModel: CreateRestModel,
-  // ) {
-  //   const candidate = await this.commands.updateCandidate(
-  //     candidateID,
-  //     CreateRestModel,
-  //   );
-  //   if (!candidate) {
-  //     throw new NotFoundException('Candidate does not exist!');
-  //   }
-  //   return candidate;
-  // }
+  @Patch('/campaigns/:id')
+  @ApiImplicitQuery({
+    name: 'id',
+  })
+  async updateCandidate(
+    @Param('id') id: IRestID,
+    @Body() model: CreateRestModel,
+  ) {
+    const data = await this.commands.updateRest(id, model);
+    if (!data) {
+      throw new NotFoundException('Candidate does not exist!');
+    }
+    return data;
+  }
 
-  // @Delete('/candidates/:candidateID')
-  // @ApiImplicitQuery({
-  //   name: 'candidateID',
-  // })
-  // async deleteCandidate(@Param('candidateID') candidateID: MongoCandidateID) {
-  //   const candidate = await this.commands.deleteCandidate(
-  //     candidateID,
-  //   );
-  //   if (!candidate) {
-  //     throw new NotFoundException('Candidate does not exist');
-  //   }
-  //   return {
-  //     message: 'Candidate has been deleted',
-  //     _id: candidateID,
-  //   };
-  // }
+  @Delete('/campaigns/:id')
+  @ApiImplicitQuery({
+    name: 'id',
+  })
+  async deleteCandidate(@Param('id') id: IRestID) {
+    const data = await this.commands.deleteRest(id);
+    if (!data) {
+      throw new NotFoundException('Campaign Id does not exist');
+    }
+    return {
+      message: 'Campaign has been deleted',
+      _id: id,
+    };
+  }
 }

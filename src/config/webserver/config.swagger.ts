@@ -4,7 +4,7 @@ import { DocumentBuilder } from '@nestjs/swagger';
 
 const ENV = dotenv.parse(fs.readFileSync('.env'));
 
-const name = 'Agency Candidate Center API';
+const name = 'freest-api';
 export const version = 'v1';
 
 const baseUrl = `/api/${version}`;
