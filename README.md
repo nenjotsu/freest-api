@@ -13,9 +13,13 @@ FREE to practice RESTful API
 
 ## Delete Record
 
+# How to Setup in Localhost (Development)
+
+
+
 
 
 # Terms of Use
 
 
-inspired from [http://rest.learncode.academy/](http://rest.learncode.academy/)
+inspired by [http://rest.learncode.academy/](http://rest.learncode.academy/)
