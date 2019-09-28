@@ -12,7 +12,7 @@ Oh yeah... did I already mentioned that this is for free? Yes, you're right, fee
 
 # How it Works
 
-You can visit the swagger ![alt swagger](http://54.251.135.247:5012/swagger)
+You can visit the swagger [http://54.251.135.247:5012/swagger](http://54.251.135.247:5012/swagger)
 
 ## Create Record
 
