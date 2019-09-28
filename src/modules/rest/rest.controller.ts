@@ -50,6 +50,18 @@ export class RestController {
     return data;
   }
 
+  @Get('/campaigns/find/:name')
+  @ApiImplicitParam({
+    name: 'name',
+  })
+  async findByName(@Param('name') name: string): Promise<ICreateRestModel[]> {
+    const data = await this.queries.findByName(name);
+    if (isEmpty(data)) {
+      throw new NotFoundException('Campaign does not exist!');
+    }
+    return data;
+  }
+
   @Post('/campaigns')
   async createRest(@Body() model: CreateRestModel) {
     const data = await this.commands.createRest(model);
