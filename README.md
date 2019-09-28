@@ -152,5 +152,6 @@ $ pm2 restart freest
 - feel free to add superheroes data
 
 # Contribution
-If you feel you want to contribute or any suggestion you have in mind please open an issue
+If you feel you want to contribute or any suggestion you have in mind please open an issue.
+
 Follow me on github [@nenjotsu](https://github.com/nenjotsu)
