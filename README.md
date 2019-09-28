@@ -1,4 +1,4 @@
-# freest-api (WIP)
+# freest-api
 
 Feel FREE to practice RESTful API
 
@@ -12,10 +12,14 @@ Oh yeah... did I already mentioned that this is for free? Yes, you're right, fee
 
 # How it Works
 
+You can visit the swagger [http://54.255.174.15:911/swagger](http://54.251.135.247:5012/swagger)
+
+You can visit the get all superheroes [http://54.255.174.15:911/api/v1/superhero/heroes](http://54.255.174.15:911/api/v1/superhero/heroes)
+
 ## Create Record
 
 ```javascript
-fetch('http://54.251.135.247:5012/api/v1/superhero/heroes', {
+fetch('http://54.255.174.15:911/api/v1/superhero/heroes', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -56,7 +60,7 @@ fetch('http://54.251.135.247:5012/api/v1/superhero/heroes', {
 ```javascript
 // Get single record
 fetch(
-  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
+  'http://54.255.174.15:911/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
 )
   .then(response => response.json())
   .then(response => {
@@ -75,7 +79,7 @@ fetch('http://54.251.135.247:5012/api/v1/superhero/heroes')
 
 ```javascript
 fetch(
-  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
+  'http://54.255.174.15:911/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
   {
     method: 'PATCH',
     headers: {
@@ -115,7 +119,7 @@ fetch(
 
 ```javascript
 fetch(
-  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
+  'http://54.255.174.15:911/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
   {
     method: 'DELETE',
   },
@@ -146,3 +150,10 @@ $ pm2 restart freest
 ```
 
 # Terms of Use
+- this is not for production of course, whatever data you enter we are not liable for any loss,
+- feel free to add superheroes data
+
+# Contribution
+If you feel you want to contribute or any suggestion you have in mind please open an issue.
+
+Follow me on github [@nenjotsu](https://github.com/nenjotsu)
