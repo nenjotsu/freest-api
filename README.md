@@ -15,15 +15,34 @@ Oh yeah... did I already mentioned that this is for free? Yes, you're right, fee
 ## Create Record
 
 ```javascript
-fetch('http://freestapi.nenjotsu.com/api/v1/rest/superhero', {
+fetch('http://54.251.135.247:5012/api/v1/superhero/heroes', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    superHeroName: 'Son Goku',
-    age: 28,
-    mainPower: 'Kamehameha',
+    name: 'Batman',
+    dateAppearance: '09/09/1986',
+    place: 'Gotham city',
+    powerStats: {
+      intelligence: 34,
+      strength: 23,
+      speed: 45,
+      durability: 23,
+      power: 12,
+      combat: 43,
+    },
+    appearance: {
+      gender: 'male',
+      race: 'Human',
+      weight: [
+        {
+          lb: 110,
+          kg: 54,
+        },
+      ],
+    },
+    aliases: ['dark knight'],
   }),
 })
   .then(response => response.json())
@@ -37,7 +56,7 @@ fetch('http://freestapi.nenjotsu.com/api/v1/rest/superhero', {
 ```javascript
 // Get single record
 fetch(
-  'http://freestapi.nenjotsu.com/api/v1/rest/superhero/5d8e2acfdb140390a701e759',
+  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
 )
   .then(response => response.json())
   .then(response => {
@@ -45,7 +64,7 @@ fetch(
   });
 
 // Get all records
-fetch('http://freestapi.nenjotsu.com/api/v1/rest/superhero')
+fetch('http://54.251.135.247:5012/api/v1/superhero/heroes')
   .then(response => response.json())
   .then(response => {
     console.log('So many superheroes', response);
@@ -56,13 +75,36 @@ fetch('http://freestapi.nenjotsu.com/api/v1/rest/superhero')
 
 ```javascript
 fetch(
-  'http://freestapi.nenjotsu.com/api/v1/rest/superhero/5d8e2acfdb140390a701e759',
+  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
   {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ superHeroName: 'One Punch Man', age: 24 }),
+    body: JSON.stringify({
+      name: 'Superman',
+      dateAppearance: '09/09/1986',
+      place: 'Gotham city',
+      powerStats: {
+        intelligence: 34,
+        strength: 23,
+        speed: 45,
+        durability: 23,
+        power: 12,
+        combat: 43,
+      },
+      appearance: {
+        gender: 'male',
+        race: 'Human',
+        weight: [
+          {
+            lb: 110,
+            kg: 54,
+          },
+        ],
+      },
+      aliases: ['dark knight'],
+    }),
   },
 ).then(response => {
   console.log('Update superhero!', response.status);
@@ -73,7 +115,7 @@ fetch(
 
 ```javascript
 fetch(
-  'http://freestapi.nenjotsu.com/api/v1/rest/superhero/5d8e2acfdb140390a701e759',
+  'http://54.251.135.247:5012/api/v1/superhero/heroes/5d8e2acfdb140390a701e759',
   {
     method: 'DELETE',
   },
@@ -94,6 +136,13 @@ $ git clone https://github.com/nenjotsu/freest-api.git
 # Setup your .env file, you can see the .env.sample for reference
 $ npm i
 $ npm run start:dev
+```
+
+```bash
+# start in production
+$ pm2 start npm --no-automation --name freest -- run start:prod
+# restart server
+$ pm2 restart freest
 ```
 
 # Terms of Use

@@ -7,7 +7,6 @@ export const MongoDatabaseProviders = [
     provide: MONGO.DATABASE_CONNECTION,
     useFactory: async (): Promise<typeof mongoose> => {
       const URI = getMongoConfig();
-      // console.log('URI', URI);
       return await mongoose.connect(URI, {
         useNewUrlParser: true,
       });
