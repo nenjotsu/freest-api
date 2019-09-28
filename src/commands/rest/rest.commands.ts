@@ -5,7 +5,7 @@ import {
   CreateRestModel,
   ICreateRestModel,
   IRestID,
-} from 'src/modules/rest/models/create.model';
+} from '../../modules/rest/models/create.model';
 
 @Injectable()
 export class RestServiceCommands {
@@ -14,27 +14,23 @@ export class RestServiceCommands {
     private readonly model: Model<ICreateRestModel>,
   ) {}
 
-  async createRest(
-    createRestModel: CreateRestModel,
-  ): Promise<ICreateRestModel> {
-    const rest = await new this.model(createRestModel);
+  async createRest(model: CreateRestModel): Promise<ICreateRestModel> {
+    const rest = await new this.model(model);
     return rest.save();
   }
 
   async updateRest(
     id: IRestID,
-    createRestModel: CreateRestModel,
+    model: CreateRestModel,
   ): Promise<ICreateRestModel | null> {
-    const updatedRest = await this.model.findByIdAndUpdate(
-      id,
-      createRestModel,
-      { new: true },
-    );
+    const updatedRest = await this.model.findByIdAndUpdate(id, model, {
+      new: true,
+    });
     return updatedRest;
   }
 
-  async deleteRest(id: IRestID): Promise<any> {
-    const deletedRest = await this.model.findOneAndDelete(id);
-    return deletedRest;
+  async deleteRest(id: IRestID): Promise<ICreateRestModel | null> {
+    const data = await this.model.findOneAndDelete(id);
+    return data;
   }
 }

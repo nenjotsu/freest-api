@@ -10,6 +10,7 @@ export enum MONGO {
   CANDIDATE_MODEL = 'CANDIDATE_MODEL',
   REST_MODEL = 'REST_MODEL',
   COLLECTION_NAME = 'rest',
+  COLLECTION_NAME_SUPPERHERO = 'superhero',
 }
 
 export enum ELASTICSEARCH {
