@@ -153,4 +153,4 @@ $ pm2 restart freest
 
 # Contribution
 If you feel you want to contribute or any suggestion you have in mind please open an issue
-Follow me @nenjotsu [https://github.com/nenjotsu](https://github.com/nenjotsu)
+Follow me on github [@nenjotsu](https://github.com/nenjotsu)
