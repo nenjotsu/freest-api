@@ -1,4 +1,4 @@
-# freest-api (WIP)
+# freest-api
 
 Feel FREE to practice RESTful API
 
