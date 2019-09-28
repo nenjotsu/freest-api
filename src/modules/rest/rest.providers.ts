@@ -4,9 +4,9 @@ import { RestDocumentSchema } from './rest.schema';
 
 export const RestProviders = [
   {
-    provide: MONGO.REST_MODEL,
+    provide: MONGO.MODEL_REST,
     useFactory: (connection: Connection) =>
-      connection.model(MONGO.COLLECTION_NAME, RestDocumentSchema),
+      connection.model(MONGO.COLLECTION_REST, RestDocumentSchema),
     inject: [MONGO.DATABASE_CONNECTION],
   },
 ];

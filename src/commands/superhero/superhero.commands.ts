@@ -5,28 +5,28 @@ import {
   CreateRestModel,
   ICreateRestModel,
   IRestID,
-} from '../../modules/rest/models/create.model';
+} from '../../modules/superhero/models/create.model';
 
 @Injectable()
-export class RestServiceCommands {
+export class SuperheroServiceCommands {
   constructor(
-    @Inject(MONGO.MODEL_REST)
+    @Inject(MONGO.MODEL_SUPERHERO)
     private readonly model: Model<ICreateRestModel>,
   ) {}
 
   async createRest(model: CreateRestModel): Promise<ICreateRestModel> {
-    const rest = await new this.model(model);
-    return rest.save();
+    const data = await new this.model(model);
+    return data.save();
   }
 
   async updateRest(
     id: IRestID,
     model: CreateRestModel,
   ): Promise<ICreateRestModel | null> {
-    const updatedRest = await this.model.findByIdAndUpdate(id, model, {
+    const data = await this.model.findByIdAndUpdate(id, model, {
       new: true,
     });
-    return updatedRest;
+    return data;
   }
 
   async deleteRest(id: IRestID): Promise<ICreateRestModel | null> {

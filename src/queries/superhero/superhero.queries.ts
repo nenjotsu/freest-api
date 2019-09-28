@@ -4,26 +4,26 @@ import { MONGO } from '@common/constants';
 import {
   ICreateRestModel,
   IRestID,
-} from '../../modules/rest/models/create.model';
+} from '../../modules/superhero/models/create.model';
 
 @Injectable()
-export class RestServiceQueries {
+export class SuperheroServiceQueries {
   constructor(
-    @Inject(MONGO.MODEL_REST)
+    @Inject(MONGO.MODEL_SUPERHERO)
     private readonly model: typeof Model,
   ) {}
 
   async getAllRest(): Promise<ICreateRestModel[]> {
-    const records = await this.model.find().exec();
+    const data = await this.model.find().exec();
     // .limit(10)
-    return records;
+    return data;
   }
 
   async getSingleRest(id: IRestID): Promise<ICreateRestModel> {
-    const records = await this.model
+    const data = await this.model
       .findById(id)
       .select('-__v')
       .exec();
-    return records;
+    return data;
   }
 }
