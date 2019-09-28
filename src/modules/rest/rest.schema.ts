@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const RestDocumentSchema = new mongoose.Schema(
+const RestDocumentSchema = new mongoose.Schema(
   {
     id: Number,
     name: { type: String, required: true, trim: true },
@@ -12,3 +12,7 @@ export const RestDocumentSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
+
+RestDocumentSchema.index({ name: 'text' });
+
+export default RestDocumentSchema;

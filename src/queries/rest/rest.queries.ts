@@ -26,4 +26,14 @@ export class RestServiceQueries {
       .exec();
     return records;
   }
+
+  async findByName(name: string): Promise<ICreateRestModel[]> {
+    const records = await this.model
+      .find({
+        name: new RegExp(name, 'i'),
+      })
+      .exec();
+
+    return records;
+  }
 }

@@ -1,6 +1,6 @@
 import { Connection } from 'mongoose';
 import { MONGO } from '@common/constants';
-import { RestDocumentSchema } from './rest.schema';
+import RestDocumentSchema from './rest.schema';
 
 export const RestProviders = [
   {
