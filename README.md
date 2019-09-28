@@ -148,3 +148,9 @@ $ pm2 restart freest
 ```
 
 # Terms of Use
+- this is not for production of course, whatever data you enter we are not liable for any loss,
+- feel free to add superheroes data
+
+# Contribution
+If you feel you want to contribute or any suggestion you have in mind please open an issue
+Follow me @nenjotsu [https://github.com/nenjotsu](https://github.com/nenjotsu)
