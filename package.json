@@ -99,7 +99,7 @@
     "helmet": "3.21.1",
     "jwks-rsa": "^1.4.0",
     "moment": "^2.24.0",
-    "mongoose": "5.4.19",
+    "mongoose": "5.7.5",
     "node-fetch": "^2.2.0",
     "require-directory": "^2.1.1",
     "rxjs": "^6.3.3",
