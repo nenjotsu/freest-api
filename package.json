@@ -1,6 +1,6 @@
 {
   "name": "freest-api",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "Free RESTful API to practice",
   "main": "dist/server.js",
   "scripts": {
@@ -15,11 +15,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./tests/jest-e2e.json"
+    "test:e2e": "jest --config ./tests/jest-e2e.json",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nenjotsu/freest-api.git"
+    "url": "https://github.com/nenjotsu/freest-api.git"
   },
   "keywords": [
     "nodejs",
@@ -77,7 +78,8 @@
     "tslint": "5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.2.4",
-    "watch": "^1.0.2"
+    "watch": "^1.0.2",
+    "semantic-release": "^15.13.31"
   },
   "dependencies": {
     "@nestjs/common": "6.0.0",
