@@ -12,7 +12,7 @@ Oh yeah... did I already mentioned that this is for free? Yes, you're right, fee
 
 # How it Works
 
-You can visit the swagger [http://54.255.174.15:911/swagger](http://54.251.135.247:5012/swagger)
+You can visit the swagger [http://54.255.174.15:911/swagger/](http://54.255.174.15:911/swagger/)
 
 You can visit the get all superheroes [http://54.255.174.15:911/api/v1/superhero/heroes](http://54.255.174.15:911/api/v1/superhero/heroes)
 
