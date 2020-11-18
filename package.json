@@ -79,7 +79,7 @@
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.2.4",
     "watch": "^1.0.2",
-    "semantic-release": "^15.13.31"
+    "semantic-release": "^17.2.3"
   },
   "dependencies": {
     "@nestjs/common": "6.0.0",
