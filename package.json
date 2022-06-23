@@ -61,7 +61,7 @@
     "install": "0.13.0",
     "jest": "25.0.0",
     "js-yaml": "^3.3.0",
-    "jsdom": "13.1.0",
+    "jsdom": "16.5.0",
     "jsdom-global": "3.0.2",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
