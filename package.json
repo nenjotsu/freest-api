@@ -86,7 +86,7 @@
     "@nestjs/core": "6.0.0",
     "@nestjs/elasticsearch": "6.0.1",
     "@nestjs/mongoose": "6.0.0",
-    "@nestjs/platform-express": "6.0.5",
+    "@nestjs/platform-express": "9.2.1",
     "@nestjs/swagger": "^3.0.2",
     "@types/lodash": "^4.14.123",
     "@types/node-fetch": "^2.3.3",
